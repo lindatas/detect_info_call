@@ -50,7 +50,7 @@ function getMac(){
     var getMacfromRuntime =  Java.use('java.lang.Runtime').exec.overload('java.lang.String');
     getMacfromRuntime.implementation = function(cmd){
         var result = this.getMacfromRuntime.call(cmd);
-        if(cmd.indexof("net/wlan0/address") || cmd.indexof("/sys/class/net/eth0/address")){
+        if(cmd.indexof("net/wlan0/address") != -1 || cmd.indexof("/sys/class/net/eth0/address") != -1){
             printBacktrace("getMacfromRuntime :",result);
         }     
         return result;
